@@ -47,10 +47,6 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
     @testVisible
     private TriggerHandler activeHandler;
 
-    /*****************
-     * MetadataTriggerHandler.getInstance().setMTS(mtsInstance)
-     */
-
     public static MetadataTriggerHandler getInstance() {
         return new metadataTriggerHandler();
     }
