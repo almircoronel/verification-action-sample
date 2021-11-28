@@ -17,6 +17,7 @@
  *  );
  * ```
  */
+
 @isTest
 public class TestDouble implements System.StubProvider {
     /**
