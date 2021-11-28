@@ -1,5 +1,6 @@
 @isTest
 private class MetadataTriggerHandler_Tests {
+    
     @isTest
     static void testMetadataTriggerHandlerNoOppWithoutRecordsPositive() {
         TestDouble stub = new TestDouble(MetadataTriggerService.class);
