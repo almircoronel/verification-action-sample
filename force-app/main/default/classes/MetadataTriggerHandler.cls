@@ -74,6 +74,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
         this.mts = mts;
     }
 
+    
     /**
      * @description Overrides the standard Run() method, which allows this
      * metadata based trigger handler can be an incremental update / sit beside
