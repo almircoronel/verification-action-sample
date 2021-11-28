@@ -22,6 +22,7 @@ public with sharing class MetadataTriggerService {
      * for all or selected individuals *without* deploying.
      * @return      `List<Metadata_Driven_Trigger__mdt>`
      */
+
     @suppressWarnings('PMD.ApexCRUDViolation')
     public List<Metadata_Driven_Trigger__mdt> getMetadataTriggers() {
         return [
