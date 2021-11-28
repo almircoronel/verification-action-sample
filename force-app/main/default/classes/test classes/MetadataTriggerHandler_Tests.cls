@@ -11,10 +11,6 @@ private class MetadataTriggerHandler_Tests {
 
         stub.track(stubbedGetMetatdataRecords);
 
-        // MetadataTriggerHandler mdtHandler = new MetadataTriggerHandler(
-        //     (MetadataTriggerService) stub.generate()
-        // );
-
         MetadataTriggerService.testOverrideObjectType = 'Account';
         MetadataTriggerHandler mdtHandler = MetadataTriggerHandler.getInstance()
             .setMTS((MetadataTriggerService) stub.generate());
