@@ -1,5 +1,5 @@
 #Unique name for Unit Tests Workflow
-name: Salesforce Apex Unit Tests
+name: Salesforce APEX unit tests
 
 #Definition when the workflow should run
 on:
