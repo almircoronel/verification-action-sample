@@ -10,6 +10,7 @@ public with sharing class MetadataTriggerService {
         this.objType = objectTypeName;
     }
 
+    
     /**
      * @description This query finds an ordered list trigger handler classes
      * to execute. It ignores any classes that are marked as disabled.
