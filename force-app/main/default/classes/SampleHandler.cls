@@ -9,6 +9,7 @@
  * Note, this class is annotated with @isTest to prevent it's use outside of
  * tests, not because it contains tests.
  */
+
 public with sharing class SampleHandler extends TriggerHandler {
     public override void beforeInsert() {
     }
