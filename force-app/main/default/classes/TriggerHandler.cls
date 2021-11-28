@@ -15,7 +15,7 @@ public virtual class TriggerHandler {
 
     // the current context of the trigger, overridable in tests
     @testVisible
-    private Boolean isTriggerExecuting;
+    private Boolean isTriggerExecuting; 
 
     // static initialization
     static {
