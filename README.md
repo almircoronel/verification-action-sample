@@ -1,1 +1,1 @@
-# Verification Action Sample 
+# Verification Action Sample
