@@ -20,13 +20,8 @@ jobs:
           - name: Checkout source code
             uses: actions/checkout@v1
           - name: Download a PMD ruleset
-            id: download-poetry
-            with:
-              file-url: 'https://github.com/ChuckJonas/vscode-apex-pmd/blob/master/rulesets/apex_ruleset.xml'
-              file-name: 'pmd-rules.xml'
-              location: '.'
-          - name: Print the file path
-            run: echo "The file was downloaded to ${{ steps.download-poetry.outputs.file-path }}"
+            run: |
+              curl -Lo pmd-rules.xml https://github.com/ChuckJonas/vscode-apex-pmd/blob/master/rulesets/apex_ruleset.xml
           - name: Check APEX
             uses: legetz/setup-pmd@v6.38
           - run: pmd -language apex -dir . -rulesets ./pmd-rules.xml -f text
