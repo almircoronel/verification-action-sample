@@ -1,21 +1,18 @@
-#Unique name for Unit Tests Workflow
-name: Salesforce APEX unit tests
+# Quality assurance (QA) 
+name: On push to release-candidate - Deploy to qa org
 
-#Definition when the workflow should run
+# Definition when the workflow should run
 on:
-  pull_request:
-      branches: ['release-candidate/**', main]
-      types: [opened, synchronize, reopened, ready_for_review]
-      paths:
-        - "force-app/**"
+    push:
+      branches: ['release-candidate/**']
+      paths: ["force-app/**"]
 
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-
+  
+# Jobs to be executed
 jobs:
-    apex-test:
+    build-deploy:
         runs-on: ubuntu-latest
-        timeout-minutes: 30
         steps:
           - name: Install sfdx client
             uses: sfdx-actions/setup-sfdx@v1
@@ -27,5 +24,3 @@ jobs:
               sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
           - name: Deploy source code
             run: sfdx force:source:deploy -p force-app
-          - name: Run apex tests
-            run: sfdx force:apex:test:run -c -r human --wait 45
