@@ -21,6 +21,6 @@ jobs:
           - name: Authorize Salesforce org
             uses: sfdx-actions/setup-sfdx@v1
             with:
-              sfdx-auth-url: ${{ secrets.SALESFORCE_DEVELOPEMENT_ORG_SECRET }}
+              sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
           - name: Deploy source code
             run: sfdx force:source:deploy -p force-app
