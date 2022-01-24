@@ -62,6 +62,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
         return this;
     }
 
+    
     /**
      * @description Constructor used by live triggers.
      */
