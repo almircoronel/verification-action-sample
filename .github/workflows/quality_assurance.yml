@@ -1,5 +1,5 @@
 # Quality assurance (QA) 
-name: On push to release-candidate - Deploy to qa org
+name: On push to release-candidate - Deploy to qa
 
 # Definition when the workflow should run
 on:
