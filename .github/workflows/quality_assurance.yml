@@ -1,0 +1,26 @@
+# Quality assurance (QA) 
+name: On push to release-candidate - Deploy to qa org
+
+# Definition when the workflow should run
+on:
+    push:
+      branches: ['release-candidate/**']
+      paths: ["force-app/**"]
+
+  workflow_dispatch:
+  
+# Jobs to be executed
+jobs:
+    build-deploy:
+        runs-on: ubuntu-latest
+        steps:
+          - name: Install sfdx client
+            uses: sfdx-actions/setup-sfdx@v1
+          - name: Checkout source code
+            uses: actions/checkout@v1
+          - name: Authorize Salesforce org
+            uses: sfdx-actions/setup-sfdx@v1
+            with:
+              sfdx-auth-url: ${{ secrets.SALESFORCE_DEVELOPEMENT_ORG_SECRET }}
+          - name: Deploy source code
+            run: sfdx force:source:deploy -p force-app
