@@ -38,6 +38,7 @@
  * @group Trigger Recipes
  */
 
+
 public with sharing class MetadataTriggerHandler extends TriggerHandler {
     @testVisible
     private MetadataTriggerService mts;
@@ -62,6 +63,7 @@ public with sharing class MetadataTriggerHandler extends TriggerHandler {
         return this;
     }
 
+    
     /**
      * @description Constructor used by live triggers.
      */
