@@ -4,7 +4,7 @@ name: On push to release-candidate - Deploy to qa
 # Definition when the workflow should run
 on:
     push:
-      branches: ['release-candidate/**']
+      branches: ['release-candidate/v1.1']
       paths: ["force-app/**"]
 
     workflow_dispatch:
