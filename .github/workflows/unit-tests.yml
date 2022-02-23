@@ -1,13 +1,16 @@
 #Unique name for Unit Tests Workflow
 name: Salesforce APEX unit tests
 
+env:
+  folder-name: 'force-app'
+
 #Definition when the workflow should run
 on:
   pull_request:
       branches: ['release-candidate/**', main]
       types: [opened, synchronize, reopened, ready_for_review]
       paths:
-        - "force-app/**"
+        - ${{env.folder-name}}/**
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -25,7 +28,9 @@ jobs:
             uses: sfdx-actions/setup-sfdx@v1
             with:
               sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
+          - name: Delete fields from organization
+            run: sfdx force:source:delete -p ${{env.folder-name}}
           - name: Deploy source code
-            run: sfdx force:source:deploy -p force-app
+            run: sfdx force:source:deploy -p ${{env.folder-name}}
           - name: Run apex tests
             run: sfdx force:apex:test:run -c -r human --wait 45
