@@ -10,7 +10,7 @@
  *  * Class__c - is a String holding the name of the Trigger Handler to execute
  *
  * Note: This Trigger framework works like this:
- *
+ * 
  * An .trigger for a sObject invokes this class via:
  * new MetadataTriggerHandler().run();
  *
