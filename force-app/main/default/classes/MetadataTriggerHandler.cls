@@ -12,7 +12,7 @@
  * Note: This Trigger framework works like this: 
  * An .trigger for a sObject invokes this class via:
  * new MetadataTriggerHandler().run();
- *
+ * 
  * This trigger handler class extends TriggerHandler - all the trigger handler
  * classes _must_ extend trigger handler. Most classes will only overwrite the
  * context methods like afterUpdate(). This class, however, overrides the run
