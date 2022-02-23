@@ -6,7 +6,7 @@
  * Metadata_Driven_Trigger__mdt has three fields:
  *  * Object__c - is a metadata entity look up to an sObject ie: Account
  *  * Execution_Order__c - is an integer and determines the order the trigger
- *  *   handlers are executed
+ *  *   handlers are executed 
  *  * Class__c - is a String holding the name of the Trigger Handler to execute
  *
  * Note: This Trigger framework works like this:
