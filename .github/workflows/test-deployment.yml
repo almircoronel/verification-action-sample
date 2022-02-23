@@ -1,11 +1,14 @@
 name: Deploy the source files and run tests
 
+env:
+  force-app-folder: 'force-app'
+
 on:
   pull_request:
       branches: ['release-candidate/**', main]
       types: [opened, synchronize, reopened, ready_for_review]
       paths:
-        - "force-app/**"
+        - ${{env.force-app-folder}}/**
 
   workflow_dispatch:
 
@@ -22,7 +25,9 @@ jobs:
             uses: sfdx-actions/setup-sfdx@v1
             with:
               sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
+          - name: Delete files from organization
+            run: sfdx:force:delete -p ${{env.force-app-folder}}
           - name: Deploy source code
-            run: sfdx force:source:deploy -p force-app
+            run: sfdx force:source:deploy -p ${{env.force-app-folder}}
           - name: Run apex tests
             run: sfdx force:apex:test:run -c -r human --wait 45
