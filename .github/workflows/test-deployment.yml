@@ -14,8 +14,6 @@ jobs:
         runs-on: ubuntu-latest
         timeout-minutes: 30
         steps:
-          - name: Install sfdx client
-            uses: sfdx-actions/setup-sfdx@v1
           - name: Checkout source code
             uses: actions/checkout@v1
           - name: Authorize Salesforce org
