@@ -11,6 +11,7 @@
  *
  * Note: This Trigger framework works like this:
  * 
+ 
  * An .trigger for a sObject invokes this class via:
  * new MetadataTriggerHandler().run();
  *
