@@ -1,4 +1,4 @@
-name: Validate Pull Request ${GITHUB_SHA}
+name: Validate Pull Request 
 
 on:
   pull_request:
@@ -14,6 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
+      - name: Informacion about validation
+        run: echo "Repository $env:GITHUB_REPOSITORY, SHA $env:GITHUB_SHA and Owner $env:GITHUB_REPOSITORY_OWNER."
       - name: Checkout source code
         uses: actions/checkout@v1
       - name: Authorize Salesforce org
