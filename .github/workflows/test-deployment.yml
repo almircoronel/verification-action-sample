@@ -1,4 +1,4 @@
-name: Validate Pull Request "${GITHUB_SHA}"
+name: Validate Pull Request ${GITHUB_SHA}
 
 on:
   pull_request:
