@@ -1,26 +1,26 @@
-name: Deploy the source files and run tests
+name: Validate Pull Request "${GITHUB_SHA}"
 
 on:
   pull_request:
-      branches: ['release-candidate/**', main]
-      types: [opened, synchronize, reopened, ready_for_review]
-      paths:
-        - "force-app/**"
+    branches: ["release-candidate/**", main]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "force-app/**"
 
   workflow_dispatch:
 
 jobs:
-    apex-test:
-        runs-on: ubuntu-latest
-        timeout-minutes: 30
-        steps:
-          - name: Checkout source code
-            uses: actions/checkout@v1
-          - name: Authorize Salesforce org
-            uses: sfdx-actions/setup-sfdx@v1
-            with:
-              sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
-          - name: Deploy source code
-            run: sfdx force:source:deploy -p force-app
-          - name: Run apex tests
-            run: sfdx force:apex:test:run -c -r human --wait 45
+  apex-test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v1
+      - name: Authorize Salesforce org
+        uses: sfdx-actions/setup-sfdx@v1
+        with:
+            sfdx-auth-url: ${{ secrets.SALESFORCE_DEPLOYMENT_ORG_SECRECT }}
+      - name: Deploy source code
+        run: sfdx force:source:deploy -p force-app
+      - name: Run apex tests
+        run: sfdx force:apex:test:run -c -r human --wait 45
