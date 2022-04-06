@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
-      - name: Informacion about validation
-        run: echo "Repository $env:GITHUB_REPOSITORY, SHA $env:GITHUB_SHA and Owner $env:GITHUB_REPOSITORY_OWNER."
+      - name: Information
+        run: echo "Repository $GITHUB_REPOSITORY, SHA $GITHUB_SHA and Owner $GITHUB_REPOSITORY_OWNER."
       - name: Checkout source code
         uses: actions/checkout@v1
       - name: Authorize Salesforce org
