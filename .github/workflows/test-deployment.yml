@@ -15,7 +15,10 @@ jobs:
     timeout-minutes: 30
     steps:
       - name: Information
-        run: echo "Repository $GITHUB_REPOSITORY, SHA $GITHUB_SHA and Owner $GITHUB_REPOSITORY_OWNER."
+        run: |
+          echo "Repository $GITHUB_REPOSITORY"
+          echo "Reference $GITHUB_REF"
+          echo "Author $GITHUB_REPOSITORY_OWNER"
       - name: Checkout source code
         uses: actions/checkout@v1
       - name: Authorize Salesforce org
