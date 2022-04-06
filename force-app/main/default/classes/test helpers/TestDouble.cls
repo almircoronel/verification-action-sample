@@ -21,7 +21,7 @@
 @isTest
 public class TestDouble implements System.StubProvider {
     /**
-     * Internal exception class.
+     * Internal exception class. 
      */
     public class TestDoubleException extends Exception {
     }
